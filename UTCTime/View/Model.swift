@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MyDateModel {
+struct TimeModel {
     var currentDateTime: Date
 }
 

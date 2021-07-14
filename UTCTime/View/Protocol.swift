@@ -8,12 +8,12 @@
 import Foundation
 import Combine
 
-protocol UTCTimeAPI {
-    func currentUTCTime() -> AnyPublisher<UtcTimeModel, Error>
+protocol UtcTimeAPIProtocol {
+    func currentUtcTime() -> AnyPublisher<UtcTimeModel, Error>
 }
 
-protocol UTCTimeService {
-    var currentModel: MyDateModel { get set }
-    func fetchNow() -> AnyPublisher<MyDateModel, Error>
+protocol UtcTimeServiceProtocol {
+    var currentModel: TimeModel { get set }
+    func reloadNow() -> AnyPublisher<TimeModel, Error>
     func moveDay(day: Int)
 }

@@ -8,24 +8,24 @@
 import Foundation
 import Combine
 
-class Service: UTCTimeService {
+class UtcTimeService: UtcTimeServiceProtocol {
     
-    var currentModel = MyDateModel(currentDateTime: Date())
+    var currentModel = TimeModel(currentDateTime: Date())
     
-    let api: UTCTimeAPI
+    let api: UtcTimeAPIProtocol
     
-    init(api: UTCTimeAPI) {
+    init(api: UtcTimeAPIProtocol) {
         self.api = api
     }
     
-    func fetchNow() -> AnyPublisher<MyDateModel, Error> {
-        // Entity -> MyDateModel
-        return api.currentUTCTime()
-            .map({ entity -> MyDateModel? in
+    func reloadNow() -> AnyPublisher<TimeModel, Error> {
+        // Entity -> TimeModel
+        return api.currentUtcTime()
+            .map({ entity -> TimeModel? in
                 let formatter = DateFormatter()
                 formatter.dateFormat = "yyyy-MM-dd'T'HH:mm'Z'"
                 guard let now = formatter.date(from: entity.currentDateTime) else { return nil }
-                let model = MyDateModel(currentDateTime: now)
+                let model = TimeModel(currentDateTime: now)
                 self.currentModel = model
                 return model
             })
@@ -41,9 +41,10 @@ class Service: UTCTimeService {
         }
         currentModel.currentDateTime = movedDay
     }
-    
+}
+
+
 //    func fetchUserList() -> AnyPublisher<[MyUserModel], Error> {
-//        // Entity -> MyDateModel
 //        return api.fetchUserList()
 //            .map({ entity -> [MyUserModel] in
 //                let list = entity.data.map{
@@ -56,4 +57,3 @@ class Service: UTCTimeService {
 //            .compactMap{$0}
 //            .eraseToAnyPublisher()
 //    }
-}

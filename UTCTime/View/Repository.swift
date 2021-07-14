@@ -8,26 +8,16 @@
 import Foundation
 import Combine
 
-class UTCTimeImplimentAPI: UTCTimeAPI {
+class UtcTimeAPI: UtcTimeAPIProtocol {
     var repository = Repository()
-    func currentUTCTime() -> AnyPublisher<UtcTimeModel, Error> {
-        return repository.fetchNow()
+    func currentUtcTime() -> AnyPublisher<UtcTimeModel, Error> {
+        return repository.reloadNow()
     }
 }
 
 class Repository {
-    // block
-    func fetchNow(onCompleted: @escaping (UtcTimeModel) -> Void) {
-        let urlStr = "http://worldclockapi.com/api/json/utc/now"
-        URLSession.shared.dataTask(with: URL(string: urlStr)!) { data, _, _ in
-            guard let data = data else { return }
-            guard let model = try? JSONDecoder().decode(UtcTimeModel.self, from: data) else { return }
-            onCompleted(model)
-        }.resume()
-    }
     
-    // combine
-    func fetchNow() -> AnyPublisher<UtcTimeModel, Error> {
+    func reloadNow() -> AnyPublisher<UtcTimeModel, Error> {
         let urlStr = "http://worldclockapi.com/api/json/utc/now"
         let url = URL.init(string: urlStr)!
         return URLSession.shared
@@ -42,6 +32,16 @@ class Repository {
             }
             .decode(type: UtcTimeModel.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
+    }
+
+    // block
+    func fetchNowWithBlock(onCompleted: @escaping (UtcTimeModel) -> Void) {
+        let urlStr = "http://worldclockapi.com/api/json/utc/now"
+        URLSession.shared.dataTask(with: URL(string: urlStr)!) { data, _, _ in
+            guard let data = data else { return }
+            guard let model = try? JSONDecoder().decode(UtcTimeModel.self, from: data) else { return }
+            onCompleted(model)
+        }.resume()
     }
     
     // combine
@@ -60,5 +60,4 @@ class Repository {
             .decode(type: UserDataAPIInfo.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
-
 }
