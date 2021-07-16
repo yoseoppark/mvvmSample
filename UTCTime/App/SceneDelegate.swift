@@ -20,9 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow.init(windowScene: scene)
         
         
-        let viewController = TimeViewController.init(viewModel: TimeViewModel.init())
-        
-        self.window?.rootViewController = UINavigationController.init(rootViewController: viewController)
+//        let viewController = TimeViewController.init(viewModel: TimeViewModel.init())
+        let navigationController = UINavigationController.init(rootViewController: MainTabBarController())
+        self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
     }
 

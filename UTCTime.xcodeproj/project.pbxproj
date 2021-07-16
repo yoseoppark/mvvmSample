@@ -19,6 +19,10 @@
 		8E1303BC26969C3C00A73B4F /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1303B926969C3C00A73B4F /* Repository.swift */; };
 		8E1303C42696B2C200A73B4F /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1303C32696B2C200A73B4F /* DateExtension.swift */; };
 		8E67B83526A1280F007C4484 /* RepositoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E67B83426A1280F007C4484 /* RepositoryDataSource.swift */; };
+		8E67B83B26A14089007C4484 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E67B83A26A14089007C4484 /* MainTabBarController.swift */; };
+		8E67B84026A142CC007C4484 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E67B83F26A142CC007C4484 /* SecondViewController.swift */; };
+		8E67B84426A142FF007C4484 /* UIViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E67B84326A142FF007C4484 /* UIViewControllerProtocol.swift */; };
+		8E67B84826A14330007C4484 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E67B84726A14330007C4484 /* BaseViewController.swift */; };
 		B4311D91631F85209F91FD87 /* Pods_UTCTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB6CDE89B29B912D9CB18F2 /* Pods_UTCTime.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +44,10 @@
 		8E1303B926969C3C00A73B4F /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		8E1303C32696B2C200A73B4F /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		8E67B83426A1280F007C4484 /* RepositoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDataSource.swift; sourceTree = "<group>"; };
+		8E67B83A26A14089007C4484 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		8E67B83F26A142CC007C4484 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		8E67B84326A142FF007C4484 /* UIViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerProtocol.swift; sourceTree = "<group>"; };
+		8E67B84726A14330007C4484 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,9 +151,21 @@
 		8E67B83826A1285F007C4484 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8E67B83A26A14089007C4484 /* MainTabBarController.swift */,
+				8E67B84326A142FF007C4484 /* UIViewControllerProtocol.swift */,
+				8E67B84726A14330007C4484 /* BaseViewController.swift */,
 				8E1303B226969C1700A73B4F /* Main */,
+				8E67B83E26A142BA007C4484 /* Second */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		8E67B83E26A142BA007C4484 /* Second */ = {
+			isa = PBXGroup;
+			children = (
+				8E67B83F26A142CC007C4484 /* SecondViewController.swift */,
+			);
+			path = Second;
 			sourceTree = "<group>";
 		};
 		F440107DC42729C22C95DD82 /* Frameworks */ = {
@@ -278,11 +298,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E67B84026A142CC007C4484 /* SecondViewController.swift in Sources */,
 				8E13039626969A5B00A73B4F /* TimeViewController.swift in Sources */,
+				8E67B83B26A14089007C4484 /* MainTabBarController.swift in Sources */,
 				8E13039226969A5B00A73B4F /* AppDelegate.swift in Sources */,
 				8E1303BB26969C3C00A73B4F /* UtcTimeModel.swift in Sources */,
+				8E67B84826A14330007C4484 /* BaseViewController.swift in Sources */,
 				8E1303BC26969C3C00A73B4F /* Repository.swift in Sources */,
 				8E1303C42696B2C200A73B4F /* DateExtension.swift in Sources */,
+				8E67B84426A142FF007C4484 /* UIViewControllerProtocol.swift in Sources */,
 				8E1303B526969C3600A73B4F /* TimeService.swift in Sources */,
 				8E67B83526A1280F007C4484 /* RepositoryDataSource.swift in Sources */,
 				8E1303B026969C1400A73B4F /* TimeViewModel.swift in Sources */,

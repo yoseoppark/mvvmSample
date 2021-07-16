@@ -9,7 +9,7 @@ import UIKit
 import Combine
 import SnapKit
 
-class TimeViewController: UIViewController {
+class TimeViewController: BaseViewController {
 
     var datetimeLabel: UILabel = {
         let label = UILabel.init()
@@ -67,9 +67,7 @@ class TimeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        configureUI()
-        
+
         viewModel.$dateTimeString
             .compactMap{$0}
             .receive(on: DispatchQueue.main)
@@ -79,8 +77,8 @@ class TimeViewController: UIViewController {
         viewModel.reload()
     }
     
-    func configureUI() {
-        
+    override func configureUI() {
+        tabBarController?.title = "첫번째 화면"
         title = "오늘의 시간"
         
         view.backgroundColor = .systemBackground
