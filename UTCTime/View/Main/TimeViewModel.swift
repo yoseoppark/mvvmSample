@@ -11,12 +11,12 @@ class TimeViewModel {
     
     @Published var dateTimeString = "Loading.." // String
     
-    let service: UtcTimeServiceProtocol
+    let service: TimeService!
     
     private var bag = Set<AnyCancellable>()
 
-    init(service: UtcTimeServiceProtocol) {
-        self.service = service
+    init() {
+        self.service = TimeService.init(repository: UtcTimeRepository())
     }
     
     func reload() {
@@ -26,7 +26,7 @@ class TimeViewModel {
         service.reloadNow()
             .sink(receiveCompletion: { _ in
             }, receiveValue: { [weak self] model in
-                let dateString = model.currentDateTime.dateToString()
+                let dateString = model.currentDate.dateToString()
                 self?.dateTimeString = dateString
             })
             .store(in: &bag)
@@ -34,7 +34,7 @@ class TimeViewModel {
 
     func moveDay(day: Int) {
         service.moveDay(day: day)
-        dateTimeString = service.currentModel.currentDateTime.dateToString()
+        dateTimeString = service.currentModel.currentDate.dateToString()
     }
 }
 

@@ -8,44 +8,43 @@
 import Foundation
 import Combine
 
-class UtcTimeService: UtcTimeServiceProtocol {
+class TimeService {
     
-    var currentModel = TimeModel(currentDateTime: Date())
+    var currentModel: UtcTimeModel!
     
-    let api: UtcTimeAPIProtocol
+    let repository: UtcTimeRepositoryProtocol
     
-    init(api: UtcTimeAPIProtocol) {
-        self.api = api
+    init(repository: UtcTimeRepositoryProtocol) {
+        self.repository = repository
     }
-    
-    func reloadNow() -> AnyPublisher<TimeModel, Error> {
+
+    func reloadNow() -> AnyPublisher<UtcTimeModel, Error> {
         // Entity -> TimeModel
-        return api.currentUtcTime()
-            .map({ entity -> TimeModel? in
+        return repository.currentUtcTime()
+            .map({ entity in
+                var new = entity
+                
                 let formatter = DateFormatter()
                 formatter.dateFormat = "yyyy-MM-dd'T'HH:mm'Z'"
                 guard let now = formatter.date(from: entity.currentDateTime) else { return nil }
-                let model = TimeModel(currentDateTime: now)
-                self.currentModel = model
-                return model
+                new.currentDate = now
+                self.currentModel = new
+                return new
             })
             .compactMap{$0}
             .eraseToAnyPublisher()
     }
     
     func moveDay(day: Int) {
-        guard let movedDay = Calendar.current.date(byAdding: .day,
-                                                   value: day,
-                                                   to: currentModel.currentDateTime) else {
+        guard let movedDay = Calendar.current.date(byAdding: .day, value: day, to: currentModel.currentDate) else {
             return
         }
-        currentModel.currentDateTime = movedDay
+        currentModel.currentDate = movedDay
     }
 }
 
-
 //    func fetchUserList() -> AnyPublisher<[MyUserModel], Error> {
-//        return api.fetchUserList()
+//        return repository.fetchUserList()
 //            .map({ entity -> [MyUserModel] in
 //                let list = entity.data.map{
 //                    MyUserModel.init(email: $0.email, name: $0.firstName + $0.lastName, avatarUrlString: $0.avatar)

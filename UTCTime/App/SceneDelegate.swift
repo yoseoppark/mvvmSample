@@ -19,8 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow.init(windowScene: scene)
         
-        let service = UtcTimeService.init(api: UtcTimeAPI())
-        let viewController = TimeViewController.init(viewModel: TimeViewModel.init(service: service))
+        
+        let viewController = TimeViewController.init(viewModel: TimeViewModel.init())
         
         self.window?.rootViewController = UINavigationController.init(rootViewController: viewController)
         self.window?.makeKeyAndVisible()

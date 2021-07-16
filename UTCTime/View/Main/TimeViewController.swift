@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import SnapKit
 
 class TimeViewController: UIViewController {
 
@@ -53,7 +54,6 @@ class TimeViewController: UIViewController {
         return button
     }()
     
-    
     var viewModel: TimeViewModel!
     
     private var bag = Set<AnyCancellable>()
@@ -89,31 +89,47 @@ class TimeViewController: UIViewController {
         view.addSubview(refreshButton)
         view.addSubview(pastDayButton)
         view.addSubview(nextDayButton)
-
-        datetimeLabel.translatesAutoresizingMaskIntoConstraints = false
-        datetimeLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 20.0).isActive = true
-        datetimeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20.0).isActive = true
-        datetimeLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20.0).isActive = true
-        datetimeLabel.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
+        
+        datetimeLabel.snp.makeConstraints { label in
+            label.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            label.leading.equalTo(view.snp.leading).offset(20.0)
+            label.trailing.equalTo(view.snp.trailing).offset(-20.0)
+            label.height.equalTo(60.0)
+        }
+        
+        pastDayButton.snp.makeConstraints { button in
+            button.top.equalTo(datetimeLabel.snp.bottom).offset(20.0)
+            button.leading.equalTo(datetimeLabel.snp.leading)
+            button.trailing.equalTo(refreshButton.snp.leading).offset(-20.0)
+            button.height.equalTo(40.0)
+            button.width.equalTo(refreshButton.snp.width)
+        }
                 
-        pastDayButton.translatesAutoresizingMaskIntoConstraints = false
-        pastDayButton.topAnchor.constraint(equalTo: datetimeLabel.bottomAnchor, constant: 20.0).isActive = true
-        pastDayButton.leadingAnchor.constraint(equalTo: datetimeLabel.leadingAnchor).isActive = true
-        pastDayButton.trailingAnchor.constraint(equalTo: refreshButton.leadingAnchor, constant: -20.0).isActive = true
-        pastDayButton.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
+        refreshButton.snp.makeConstraints { button in
+            button.top.equalTo(datetimeLabel.snp.bottom).offset(20.0)
+            button.trailing.equalTo(nextDayButton.snp.leading).offset(-20.0)
+            button.height.equalTo(40.0)
+            button.width.equalTo(nextDayButton.snp.width)
+        }
         
-        refreshButton.translatesAutoresizingMaskIntoConstraints = false
-        refreshButton.topAnchor.constraint(equalTo: datetimeLabel.bottomAnchor, constant: 20.0).isActive = true
-        refreshButton.trailingAnchor.constraint(equalTo: nextDayButton.leadingAnchor, constant: -20.0).isActive = true
-        refreshButton.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
+        nextDayButton.snp.makeConstraints { button in
+            button.top.equalTo(datetimeLabel.snp.bottom).offset(20.0)
+            button.trailing.equalTo(datetimeLabel.snp.trailing)
+            button.height.equalTo(40.0)
+        }
         
-        nextDayButton.translatesAutoresizingMaskIntoConstraints = false
-        nextDayButton.topAnchor.constraint(equalTo: datetimeLabel.bottomAnchor, constant: 20.0).isActive = true
-        nextDayButton.trailingAnchor.constraint(equalTo: datetimeLabel.trailingAnchor).isActive = true
-        nextDayButton.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
-        
-        pastDayButton.widthAnchor.constraint(equalTo: refreshButton.widthAnchor).isActive = true
-        refreshButton.widthAnchor.constraint(equalTo: nextDayButton.widthAnchor).isActive = true
+//        refreshButton.translatesAutoresizingMaskIntoConstraints = false
+//        refreshButton.topAnchor.constraint(equalTo: datetimeLabel.bottomAnchor, constant: 20.0).isActive = true
+//        refreshButton.trailingAnchor.constraint(equalTo: nextDayButton.leadingAnchor, constant: -20.0).isActive = true
+//        refreshButton.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
+
+//        nextDayButton.translatesAutoresizingMaskIntoConstraints = false
+//        nextDayButton.topAnchor.constraint(equalTo: datetimeLabel.bottomAnchor, constant: 20.0).isActive = true
+//        nextDayButton.trailingAnchor.constraint(equalTo: datetimeLabel.trailingAnchor).isActive = true
+//        nextDayButton.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
+
+//        pastDayButton.widthAnchor.constraint(equalTo: refreshButton.widthAnchor).isActive = true
+//        refreshButton.widthAnchor.constraint(equalTo: nextDayButton.widthAnchor).isActive = true
         
     }
 }

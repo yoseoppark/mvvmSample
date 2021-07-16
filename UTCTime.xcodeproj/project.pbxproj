@@ -3,22 +3,22 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8E01DD10269C306B00E99204 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E01DD0F269C306B00E99204 /* Protocol.swift */; };
+		8E01DD10269C306B00E99204 /* RepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E01DD0F269C306B00E99204 /* RepositoryProtocol.swift */; };
 		8E13039226969A5B00A73B4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E13039126969A5B00A73B4F /* AppDelegate.swift */; };
 		8E13039426969A5B00A73B4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E13039326969A5B00A73B4F /* SceneDelegate.swift */; };
 		8E13039626969A5B00A73B4F /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E13039526969A5B00A73B4F /* TimeViewController.swift */; };
 		8E13039B26969A5D00A73B4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E13039A26969A5D00A73B4F /* Assets.xcassets */; };
 		8E13039E26969A5D00A73B4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E13039C26969A5D00A73B4F /* LaunchScreen.storyboard */; };
 		8E1303B026969C1400A73B4F /* TimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1303AF26969C1400A73B4F /* TimeViewModel.swift */; };
-		8E1303B526969C3600A73B4F /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1303B426969C3600A73B4F /* Service.swift */; };
-		8E1303BA26969C3C00A73B4F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1303B726969C3C00A73B4F /* Model.swift */; };
-		8E1303BB26969C3C00A73B4F /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1303B826969C3C00A73B4F /* Entity.swift */; };
+		8E1303B526969C3600A73B4F /* TimeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1303B426969C3600A73B4F /* TimeService.swift */; };
+		8E1303BB26969C3C00A73B4F /* UtcTimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1303B826969C3C00A73B4F /* UtcTimeModel.swift */; };
 		8E1303BC26969C3C00A73B4F /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1303B926969C3C00A73B4F /* Repository.swift */; };
 		8E1303C42696B2C200A73B4F /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1303C32696B2C200A73B4F /* DateExtension.swift */; };
+		8E67B83526A1280F007C4484 /* RepositoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E67B83426A1280F007C4484 /* RepositoryDataSource.swift */; };
 		B4311D91631F85209F91FD87 /* Pods_UTCTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB6CDE89B29B912D9CB18F2 /* Pods_UTCTime.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +26,7 @@
 		0BB6CDE89B29B912D9CB18F2 /* Pods_UTCTime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UTCTime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BE0F3FC24635AC378B2D590 /* Pods-UTCTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UTCTime.debug.xcconfig"; path = "Target Support Files/Pods-UTCTime/Pods-UTCTime.debug.xcconfig"; sourceTree = "<group>"; };
 		5AB9C7DF07E0CECA784AE421 /* Pods-UTCTime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UTCTime.release.xcconfig"; path = "Target Support Files/Pods-UTCTime/Pods-UTCTime.release.xcconfig"; sourceTree = "<group>"; };
-		8E01DD0F269C306B00E99204 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
+		8E01DD0F269C306B00E99204 /* RepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryProtocol.swift; sourceTree = "<group>"; };
 		8E13038E26969A5B00A73B4F /* UTCTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UTCTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E13039126969A5B00A73B4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E13039326969A5B00A73B4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,11 +35,11 @@
 		8E13039D26969A5D00A73B4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E13039F26969A5D00A73B4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E1303AF26969C1400A73B4F /* TimeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeViewModel.swift; sourceTree = "<group>"; };
-		8E1303B426969C3600A73B4F /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
-		8E1303B726969C3C00A73B4F /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		8E1303B826969C3C00A73B4F /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		8E1303B426969C3600A73B4F /* TimeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeService.swift; sourceTree = "<group>"; };
+		8E1303B826969C3C00A73B4F /* UtcTimeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtcTimeModel.swift; sourceTree = "<group>"; };
 		8E1303B926969C3C00A73B4F /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		8E1303C32696B2C200A73B4F /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		8E67B83426A1280F007C4484 /* RepositoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,25 +76,22 @@
 			isa = PBXGroup;
 			children = (
 				8E1303B326969C1F00A73B4F /* App */,
-				8E1303B226969C1700A73B4F /* View */,
+				8E67B83826A1285F007C4484 /* View */,
+				8E67B83126A12781007C4484 /* Repository */,
 				8E1303C12696B2A900A73B4F /* Common */,
 				8E13039F26969A5D00A73B4F /* Info.plist */,
 			);
 			path = UTCTime;
 			sourceTree = "<group>";
 		};
-		8E1303B226969C1700A73B4F /* View */ = {
+		8E1303B226969C1700A73B4F /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				8E01DD0F269C306B00E99204 /* Protocol.swift */,
 				8E13039526969A5B00A73B4F /* TimeViewController.swift */,
 				8E1303AF26969C1400A73B4F /* TimeViewModel.swift */,
-				8E1303B426969C3600A73B4F /* Service.swift */,
-				8E1303B826969C3C00A73B4F /* Entity.swift */,
-				8E1303B726969C3C00A73B4F /* Model.swift */,
-				8E1303B926969C3C00A73B4F /* Repository.swift */,
+				8E1303B426969C3600A73B4F /* TimeService.swift */,
 			);
-			path = View;
+			path = Main;
 			sourceTree = "<group>";
 		};
 		8E1303B326969C1F00A73B4F /* App */ = {
@@ -122,6 +119,33 @@
 				8E1303C32696B2C200A73B4F /* DateExtension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		8E67B82B26A1252A007C4484 /* EntityModel */ = {
+			isa = PBXGroup;
+			children = (
+				8E1303B826969C3C00A73B4F /* UtcTimeModel.swift */,
+			);
+			path = EntityModel;
+			sourceTree = "<group>";
+		};
+		8E67B83126A12781007C4484 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				8E67B82B26A1252A007C4484 /* EntityModel */,
+				8E01DD0F269C306B00E99204 /* RepositoryProtocol.swift */,
+				8E1303B926969C3C00A73B4F /* Repository.swift */,
+				8E67B83426A1280F007C4484 /* RepositoryDataSource.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		8E67B83826A1285F007C4484 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8E1303B226969C1700A73B4F /* Main */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		F440107DC42729C22C95DD82 /* Frameworks */ = {
@@ -152,6 +176,7 @@
 				8E13038A26969A5B00A73B4F /* Sources */,
 				8E13038B26969A5B00A73B4F /* Frameworks */,
 				8E13038C26969A5B00A73B4F /* Resources */,
+				04D2B3CEBF0BF613A16ACE9D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -207,6 +232,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		04D2B3CEBF0BF613A16ACE9D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UTCTime/Pods-UTCTime-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UTCTime/Pods-UTCTime-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UTCTime/Pods-UTCTime-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		472ECB9B1D62FD417BEDD8AB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -238,14 +280,14 @@
 			files = (
 				8E13039626969A5B00A73B4F /* TimeViewController.swift in Sources */,
 				8E13039226969A5B00A73B4F /* AppDelegate.swift in Sources */,
-				8E1303BB26969C3C00A73B4F /* Entity.swift in Sources */,
+				8E1303BB26969C3C00A73B4F /* UtcTimeModel.swift in Sources */,
 				8E1303BC26969C3C00A73B4F /* Repository.swift in Sources */,
 				8E1303C42696B2C200A73B4F /* DateExtension.swift in Sources */,
-				8E1303B526969C3600A73B4F /* Service.swift in Sources */,
-				8E1303BA26969C3C00A73B4F /* Model.swift in Sources */,
+				8E1303B526969C3600A73B4F /* TimeService.swift in Sources */,
+				8E67B83526A1280F007C4484 /* RepositoryDataSource.swift in Sources */,
 				8E1303B026969C1400A73B4F /* TimeViewModel.swift in Sources */,
 				8E13039426969A5B00A73B4F /* SceneDelegate.swift in Sources */,
-				8E01DD10269C306B00E99204 /* Protocol.swift in Sources */,
+				8E01DD10269C306B00E99204 /* RepositoryProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
