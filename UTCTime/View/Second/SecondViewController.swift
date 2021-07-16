@@ -16,6 +16,7 @@ class SecondViewController: BaseViewController {
     override func configureUI() {
         view.backgroundColor = .green
         tabBarController?.title = "두번째 화면"
+        title = "리스트"
     }
     
 }
