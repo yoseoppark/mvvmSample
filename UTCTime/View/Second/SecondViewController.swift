@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MLSCommon
 
 class SecondViewController: BaseViewController {
     
@@ -17,6 +18,8 @@ class SecondViewController: BaseViewController {
         view.backgroundColor = .green
         tabBarController?.title = "두번째 화면"
         title = "리스트"
+        
+        print(Date().toYMDString())
     }
     
 }
